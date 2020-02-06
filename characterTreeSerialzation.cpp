@@ -31,8 +31,7 @@ void put(struct node *root, string str) {
 void printTree(struct node *root, vector<string> &output, string str = "") {
 
 	struct node *curr = root;
-	
-		cout<<str<<endl;
+
 	if(curr->end == 1) {
 		output.push_back(str);
 		return;
@@ -48,7 +47,7 @@ void printTree(struct node *root, vector<string> &output, string str = "") {
 }		
 
 
-int main() {
+int main(int argc, char** argv) {
 
 	struct node *root = (struct node*)malloc(sizeof(struct node));
 
@@ -58,11 +57,13 @@ int main() {
 
 	ifstream file;
 
-	file.open("content.csv");
+	file.open(argv[1]);
 
 	while(file) {
 
 		getline(file, str);
+		if(str.length() == 0) 
+			break;
 		content.push_back(str);
 
 	}
@@ -73,7 +74,6 @@ int main() {
 	}
 
 	printTree(root, output);
-	cout<<output.size();
 
 	for(int i = 0;i<output.size();i++) {
 

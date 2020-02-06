@@ -18,11 +18,11 @@ void findPer(vector<vector<char>> vec, vector<string> &output, int n=0, string s
 
 }
 
-int main() {
+int main(int argc, char** argv) {
 
 	ifstream file;
 
-	file.open("content.csv");
+	file.open(argv[1]);
 
 	string str;
 
